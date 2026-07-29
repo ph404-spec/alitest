@@ -1,34 +1,39 @@
-const BACKEND_DOMAIN = "ying-reft-887309013306.us-central1.run.app";
+const BACKEND = "ying-reft-887309013306.us-central1.run.app";
 
 export default {
   async fetch(request) {
-    const url = new URL(request.url);
 
-    const target = new URL(url.pathname + url.search, "https://" + BACKEND_DOMAIN);
+    const target = new URL(request.url);
+    target.hostname = BACKEND;
+    target.protocol = "https:";
 
     const headers = new Headers(request.headers);
 
-    // remove problematic hop-by-hop headers
+    // remove ESA restricted/hop headers
     headers.delete("host");
     headers.delete("connection");
     headers.delete("content-length");
+    headers.delete("keep-alive");
 
-    const response = await fetch(target, {
+    const response = await fetch(target.toString(), {
       method: request.method,
-      headers: headers,
-      body: ["GET", "HEAD"].includes(request.method)
+      headers,
+      body: request.method === "GET" || request.method === "HEAD"
         ? undefined
         : request.body,
-      redirect: "manual"
+        redirect: "follow"
     });
 
-    const responseHeaders = new Headers(response.headers);
+    const text = await response.text();
 
-    responseHeaders.delete("content-length");
-
-    return new Response(response.body, {
-      status: response.status,
-      headers: responseHeaders
-    });
+    return new Response(
+      "STATUS: " + response.status + "\n\n" + text.slice(0,500),
+      {
+        status: 200,
+        headers:{
+          "content-type":"text/plain"
+        }
+      }
+    );
   }
 };
