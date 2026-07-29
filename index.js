@@ -4,22 +4,31 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
 
-    const target = new URL(request.url);
-    target.hostname = BACKEND_DOMAIN;
-    target.protocol = "https:";
+    const target = new URL(url.pathname + url.search, "https://" + BACKEND_DOMAIN);
 
     const headers = new Headers(request.headers);
-    headers.set("Host", BACKEND_DOMAIN);
+
+    // remove problematic hop-by-hop headers
+    headers.delete("host");
+    headers.delete("connection");
+    headers.delete("content-length");
 
     const response = await fetch(target, {
       method: request.method,
-      headers,
-      body: request.body
+      headers: headers,
+      body: ["GET", "HEAD"].includes(request.method)
+        ? undefined
+        : request.body,
+      redirect: "manual"
     });
+
+    const responseHeaders = new Headers(response.headers);
+
+    responseHeaders.delete("content-length");
 
     return new Response(response.body, {
       status: response.status,
-      headers: response.headers
+      headers: responseHeaders
     });
   }
 };
