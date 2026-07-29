@@ -1,0 +1,21 @@
+{
+  "name": "esa-xhttp-relay",
+  "version": "1.0.0",
+  "description": "XHTTP Relay Edge Routine for Alibaba Cloud ESA to Google Cloud Run",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "esa dev",
+    "deploy": "esa publish"
+  },
+  "keywords": [
+    "esa",
+    "edge-routine",
+    "xhttp",
+    "v2ray"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@aliyun/esa-cli": "latest"
+  }
+}
