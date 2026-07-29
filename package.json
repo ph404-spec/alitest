@@ -4,18 +4,17 @@
   "description": "XHTTP Relay Edge Routine for Alibaba Cloud ESA to Google Cloud Run",
   "main": "src/index.js",
   "scripts": {
-    "dev": "esa dev",
-    "deploy": "esa publish"
+    "build": "echo 'No build step required'",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [
     "esa",
     "edge-routine",
-    "xhttp",
-    "v2ray"
+    "xhttp"
   ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aliyun/esa-cli": "latest"
+    "@types/node": "^20.0.0"
   }
 }
