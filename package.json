@@ -1,20 +1,13 @@
 {
-  "name": "esa-xhttp-relay",
-  "version": "1.0.0",
-  "description": "XHTTP Relay Edge Routine for Alibaba Cloud ESA to Google Cloud Run",
+  "$schema": "https://alibabacloudesa.com/config-schema.json",
+  "name": "xhttp-relay-worker",
   "main": "src/index.js",
-  "scripts": {
-    "build": "echo 'No build step required'",
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
-  "keywords": [
-    "esa",
-    "edge-routine",
-    "xhttp"
-  ],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^20.0.0"
-  }
+  "entry": "src/index.js",
+  "function_file": "src/index.js",
+  "compatibility_date": "2026-01-01",
+  "routes": [
+    {
+      "pattern": "*/*"
+    }
+  ]
 }
