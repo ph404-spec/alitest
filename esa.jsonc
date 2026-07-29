@@ -1,0 +1,18 @@
+{
+  "$schema": "https://alibabacloudesa.com/config-schema.json",
+  "name": "xhttp-relay-worker",
+  "main": "src/index.js",
+  "compatibility_date": "2026-01-01",
+  
+  // Triggers & Routes kung saan gaganana ang script
+  "routes": [
+    {
+      "pattern": "aliyunxhttp.7bd2c7ad.er.aliyun-esa.net/*"
+    }
+  ],
+
+  // Environment Variables (kung mayroong gagamitin sa hinaharap)
+  "vars": {
+    "ENVIRONMENT": "production"
+  }
+}
