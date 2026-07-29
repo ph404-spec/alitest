@@ -1,9 +1,5 @@
 {
   "name": "xhttp-relay-worker",
   "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "build": "echo 'No build required'"
-  },
-  "dependencies": {}
+  "type": "module"
 }
