@@ -1,8 +1,6 @@
 {
-  "$schema": "https://alibabacloudesa.com/config-schema.json",
   "name": "xhttp-relay-worker",
   "entry": "./index.js",
-  "buildCommand": "",
-  "installCommand": "",
-  "compatibility_date": "2026-01-01"
+  "buildCommand": "echo build skipped",
+  "installCommand": ""
 }
