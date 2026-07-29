@@ -1,4 +1,4 @@
-const BACKEND = "ying-reft-887309013306.us-central1.run.app";
+const BACKEND = "ying-ctmc-780516275884.us-central1.run.app";
 
 export default {
   async fetch(request) {
