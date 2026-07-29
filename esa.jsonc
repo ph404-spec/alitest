@@ -2,8 +2,6 @@
   "$schema": "https://alibabacloudesa.com/config-schema.json",
   "name": "xhttp-relay-worker",
   "main": "src/index.js",
-  "entry": "src/index.js",
-  "function_file": "src/index.js",
   "compatibility_date": "2026-01-01",
   "routes": [
     {
